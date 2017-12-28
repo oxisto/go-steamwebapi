@@ -2,7 +2,7 @@ package structs
 
 // TODO: enum for persona state
 
-type PlayerSummariesResponse struct {
+type GetPlayerSummariesResponse struct {
 	Response struct {
 		Players []Player `json:players`
 	} `json:response`
