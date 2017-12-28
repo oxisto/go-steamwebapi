@@ -12,6 +12,10 @@ type GetUserStatsForGameResponse struct {
 			Name     string `json:name`
 			Achieved int    `json:achieved`
 		} `json:achievements`
+		Stats []struct {
+			Name     string `json:name`
+			Value int    `json:achieved`
+		} `json:stats`
 	} `json:playerstats`
 }
 

@@ -12,7 +12,7 @@ func TestGetSchemaForGame(t *testing.T) {
 
 	assert.NotEmpty(t, apiKey)
 
-	response, err := GetSchemaForGame(apiKey, 218620)
+	response, err := GetSchemaForGame(apiKey, "218620")
 
 	assert.Empty(t, err)
 
@@ -31,7 +31,7 @@ func TestGetUserStatsForGame(t *testing.T) {
 
 	assert.NotEmpty(t, apiKey)
 
-	response, err := GetUserStatsForGame(apiKey, 218620, steamID)
+	response, err := GetUserStatsForGame(apiKey, "218620", steamID)
 
 	assert.Empty(t, err)
 
@@ -40,6 +40,7 @@ func TestGetUserStatsForGame(t *testing.T) {
 	assert.Equal(t, steamID, response.PlayerStats.SteamID)
 	assert.Equal(t, "PAYDAY 2", response.PlayerStats.GameName)
 	assert.NotEmpty(t, response.PlayerStats.Achievements)
+	assert.NotEmpty(t, response.PlayerStats.Stats)
 
 	fmt.Print(response)
 }
