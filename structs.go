@@ -1,4 +1,4 @@
-package main
+package steamwebapi
 
 type GetSchemaForGameResponse struct {
 	Game Game `json:game`

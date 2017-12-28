@@ -1,4 +1,4 @@
-package main
+package steamwebapi
 
 import (
 	"fmt"
@@ -28,4 +28,3 @@ func GetPlayerAchievements(apiKey string, gameID string, steamID string) (respon
 
 	return
 }
-
