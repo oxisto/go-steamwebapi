@@ -21,8 +21,8 @@ type GetUserStatsForGameResponse struct {
 
 type GetPlayerAchievementsResponse struct {
 	PlayerStats struct {
-		SteamID  string `json:steamID`
-		GameName string `json:gameName`
+		SteamID      string                `json:steamID`
+		GameName     string                `json:gameName`
 		Achievements []UnlockedAchievement `json:achievements`
 	}
 }
@@ -93,6 +93,19 @@ func (g Game) FindAchievement(name string) *Achievement {
 	for _, achievement := range g.AvailableGameStats.Achievements {
 		if achievement.Name == name {
 			return &achievement
+		}
+	}
+
+	return nil
+}
+
+func (r GetUserStatsForGameResponse) GetStat(name string) *struct {
+	Name  string `json:name`
+	Value int    `json:value`
+} {
+	for _, stat := range r.PlayerStats.Stats {
+		if stat.Name == name {
+			return &stat
 		}
 	}
 
