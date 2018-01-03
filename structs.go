@@ -1,5 +1,7 @@
 package steamwebapi
 
+import "strings"
+
 type GetSchemaForGameResponse struct {
 	Game Game `json:"game"`
 }
@@ -110,6 +112,16 @@ func (r GetUserStatsForGameResponse) GetStat(name string) *struct {
 	}
 
 	return nil
+}
+
+func (r GetUserStatsForGameResponse) GetNumStatsWithPrefix(prefix string) (i int) {
+	for _, stat := range r.PlayerStats.Stats {
+		if strings.HasPrefix(stat.Name, prefix) {
+			i++
+		}
+	}
+
+	return
 }
 
 func (r GetPlayerAchievementsResponse) GetLatestUnlockedAchievement() (lastAchievement UnlockedAchievement) {

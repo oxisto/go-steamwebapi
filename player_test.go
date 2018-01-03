@@ -4,7 +4,6 @@ import (
 	"testing"
 	"os"
 	"github.com/stretchr/testify/assert"
-	"fmt"
 )
 
 func TestGetPlayerSummaries(t *testing.T) {
@@ -75,6 +74,4 @@ func TestGetPlayerAchievements(t *testing.T) {
 	achievement := response2.Game.FindAchievement(unlockedAchievement.ApiName)
 
 	assert.NotEmpty(t, achievement)
-
-	fmt.Print(achievement.Name)
 }

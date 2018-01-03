@@ -39,3 +39,13 @@ func GetAppDetails(appIDs [] string) (response map[string]AppDetail, err error) 
 
 	return
 }
+
+func (a AppData) GetGenre() (genre string) {
+	var s []string
+
+	for _, v := range a.Genres {
+		s = append(s, v.Description)
+	}
+
+	return strings.Join(s, "-")
+}
